@@ -17,7 +17,7 @@ then
         tmux new -s htb -d
         tmux send-keys -t htb:0 'openvpn /root/vpn/yelenz.ovpn' ENTER
         tmux new-window
-        tmux send-keys -t htb:1 'sleep 3; nmap -v -o recon/nmap-fast `cat ip`; nmap -A -p- -T4 -v -o recon/nmap `cat ip`' ENTER
+        tmux send-keys -t htb:1 'sleep 3; nmap -T4 -v -o recon/nmap-fast `cat ip`; nmap -T4 -v -A -o recon/nmap -p- `cat ip`' ENTER
         tmux attach -t htb
 else
         echo "Usage:"
