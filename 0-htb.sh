@@ -1,6 +1,6 @@
 #!/bin/bash
 
-if [ $# -e 1 ]
+if [ $# == 1 ]
 then
         cd $1
         tmux new -s htb -d
@@ -8,7 +8,7 @@ then
         tmux new-window
         tmux send-keys -t htb:1 'ping -c 4 `cat ip`' ENTER
         tmux attach -t htb
-elif [ $# -e 2 ]
+elif [ $# == 2 ]
 then
         mkdir $1
         cd $1
@@ -21,7 +21,7 @@ then
         tmux attach -t htb
 else
         echo "Usage:"
-        echo "\t create: $0 <number-name> <ip>"
-        echo "\t continue: $0 <number-name>"
+        echo " create new box: $0 <number-name> <ip>"
+        echo " continue old box: $0 <number-name>"
         exit 1
 fi
