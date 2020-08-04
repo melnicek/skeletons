@@ -7,7 +7,7 @@ PORT = 0
 conn = http.client.HTTPConnection(HOST, PORT)
 conn.request("GET", "/")
 
-res = c.getresponse().read()
+res = conn.getresponse().read()
 body = res.read()
 
 print(body)
